@@ -142,7 +142,7 @@
      <timelines>
           <DOMTimeline name="Scene 1">
                <layers>
-                    <DOMLayer name="Actionscript" color="#000000" autoNamed="false">
+                    <DOMLayer name="Actionscript" color="#000000" locked="true" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <Actionscript>
@@ -163,6 +163,7 @@ function handleAddedToStage() {
 	Security.allowInsecureDomain("http://192.168.1.4");
 	subscribeButton.addEventListener(MouseEvent.MOUSE_UP,handleSubscribeClick,false,0,true );
 	stopButton.addEventListener(MouseEvent.MOUSE_UP,handleStopClick,false,0,true );
+	clearButton.addEventListener(MouseEvent.MOUSE_UP,handleClearLogClick,false,0,true );
 }
 
 function configConnection() {
@@ -201,6 +202,11 @@ function handleStopClick(event:MouseEvent):void {
 	videoContainer.clear();
 	subscribeButton.enabled = true;
 	stopButton.enabled = false;
+}
+
+function handleClearLogClick(event:MouseEvent):void {
+	textAreaData = "";
+	textArea.text = "";
 }
 
 function handleMetaData( info : Object ):void {
@@ -373,7 +379,7 @@ stop();]]></script>
    </property>
 ]]></parametersAsXML>
                                         </DOMComponentInstance>
-                                        <DOMComponentInstance libraryItemName="Button" name="stopButton" centerPoint3DX="280" centerPoint3DY="360" uniqueID="10">
+                                        <DOMComponentInstance libraryItemName="Button" name="clearButton" centerPoint3DX="280" centerPoint3DY="360" uniqueID="10">
                                              <matrix>
                                                   <Matrix tx="230" ty="349"/>
                                              </matrix>
@@ -390,7 +396,7 @@ stop();]]></script>
       <Inspectable name="enabled" variable="enabled" category="" verbose="1" defaultValue="true" type="Boolean"/>
    </property>
    <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="stop" type="String"/>
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="clear log" type="String"/>
    </property>
    <property id="labelPlacement">
       <Inspectable name="labelPlacement" variable="labelPlacement" category="" verbose="0" defaultValue="right" enumeration="left,right,top,bottom" type="List"/>
@@ -517,11 +523,44 @@ stop();]]></script>
    </property>
 ]]></parametersAsXML>
                                         </DOMComponentInstance>
+                                        <DOMComponentInstance libraryItemName="Button" name="stopButton" centerPoint3DX="170" centerPoint3DY="360" uniqueID="1">
+                                             <matrix>
+                                                  <Matrix tx="120" ty="349"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="50" y="11"/>
+                                             </transformationPoint>
+                                             <dataBindingXML><![CDATA[<component metaDataFetched='true' schemaUrl='' schemaOperation='' sceneRootLabel='Scene 1' oldCopiedComponentPath='1'>
+</component>
+]]></dataBindingXML>
+                                             <parametersAsXML><![CDATA[   <property id="emphasized">
+      <Inspectable name="emphasized" variable="emphasized" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="enabled">
+      <Inspectable name="enabled" variable="enabled" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="stop" type="String"/>
+   </property>
+   <property id="labelPlacement">
+      <Inspectable name="labelPlacement" variable="labelPlacement" category="" verbose="0" defaultValue="right" enumeration="left,right,top,bottom" type="List"/>
+   </property>
+   <property id="selected">
+      <Inspectable name="selected" variable="selected" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="toggle">
+      <Inspectable name="toggle" variable="toggle" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="visible">
+      <Inspectable name="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                                        </DOMComponentInstance>
                                    </elements>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="video" color="#00FF00" autoNamed="false">
+                    <DOMLayer name="video" color="#00FF00" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>
@@ -534,7 +573,7 @@ stop();]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="video frame" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="video frame" color="#FF4FFF" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>
@@ -551,7 +590,7 @@ stop();]]></script>
                                                             </StrokeStyle>
                                                        </strokes>
                                                        <edges>
-                                                            <Edge strokeStyle="1" edges="!200 1800S4|211 1810!211 1810|6610 1810!6610 1810|6610 6610!6610 6610|210 6610!210 6610|210 1810!210 1810|211 1810!6610 6610|3410 4210!3410 4210|210 6610!211 1810|3410 4210!3410 4210|6610 1810"/>
+                                                            <Edge strokeStyle="1" edges="!200 1800|211 1810!211 1810|6610 1810!6610 1810|6610 6610!6610 6610|210 6610!210 6610|210 1810!210 1810|211 1810!6610 6610|3410 4210!3410 4210|210 6610!211 1810|3410 4210!3410 4210|6610 1810"/>
                                                        </edges>
                                                   </DOMShape>
                                              </members>
@@ -560,7 +599,7 @@ stop();]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="background" color="#4FFFFF" autoNamed="false">
+                    <DOMLayer name="background" color="#4FFFFF" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>
@@ -588,7 +627,10 @@ stop();]]></script>
           </DOMTimeline>
      </timelines>
      <PrinterSettings platform="macintosh"/>
-     <publishHistory/>
+     <publishHistory>
+          <PublishItem publishSize="29166" publishTime="1507320423"/>
+          <PublishItem publishSize="29159" publishTime="1507320361"/>
+     </publishHistory>
      <swcCache>
           <Swc hashKey="k718tUOF1.A1OSpQnqdJJ0" href="OD1JZXAWND.swc">
                <classDefinitions>
