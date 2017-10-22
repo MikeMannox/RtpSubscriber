@@ -334,7 +334,6 @@ function appendText(data:String){
 	textArea.textField.scrollV = textArea.textField.maxScrollV;
 }
 
-//addEventListener(Event.ADDED_TO_STAGE,handleAddedToStage );// , false , 0 , true
 handleAddedToStage();
 stop();]]></script>
                                    </Actionscript>
